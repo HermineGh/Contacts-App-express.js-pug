@@ -1,0 +1,7 @@
+extends template.pug
+
+block content
+ form(action="http://127.0.0.1:3000/contacts/new" method="POST"  class="container")
+  include includes/form.pug
+  input(type="submit" value= "send"  class="btn right" id="send")
+ 

@@ -1,0 +1,10 @@
+extends template.pug
+
+block styles
+   link(rel= "stylesheet" href= cssLink)
+block content
+ form(action="http://127.0.0.1:3000/contacts/edit" method="POST"  class="container")
+  include includes/form.pug
+   #buttons 
+    input(type="submit" value= "save" class="btn right")
+    a(href="/" class="btn btn-outline right")= "cancel"

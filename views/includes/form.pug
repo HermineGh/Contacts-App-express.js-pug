@@ -1,0 +1,8 @@
+div
+ label(for="name")= 'Name'
+ input(type="text" id="name" placeholder="name" name="name" value= nameVal ? nameVal : "" )
+ p.name_valid= nameWarning?nameWarning:""
+div
+ label(for="phone")= 'Phone number'
+ input(type="tel" id="phone" placeholder="+374(xx)xxxxxx" name="phone" value= phoneVal ? phoneVal :"")
+ p.tel_valid= telWarning?telWarning:""

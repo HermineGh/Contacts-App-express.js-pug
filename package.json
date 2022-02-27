@@ -1,0 +1,27 @@
+{
+	"name": "contact-app",
+	"version": "1.0.0",
+	"description": "",
+	"main": "script.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "nodemon server.js"
+	},
+	"keywords": [],
+	"author": "Hermine",
+	"license": "ISC",
+	"devDependencies": {
+		"eslint": "^8.9.0",
+		"eslint-config-airbnb-base": "^15.0.0",
+		"eslint-plugin-import": "^2.25.4"
+	},
+	"dependencies": {
+		"body-parser": "^1.19.2",
+		"cleave.js": "^1.6.0",
+		"eslint-config-prettier": "^8.4.0",
+		"express": "^4.17.3",
+		"express-validator": "^6.14.0",
+		"morgan": "^1.10.0",
+		"pug": "^3.0.2"
+	}
+}

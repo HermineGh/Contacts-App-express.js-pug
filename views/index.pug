@@ -1,0 +1,14 @@
+extends template.pug
+
+block styles
+ link(rel= "stylesheet" href= cssLink)
+block content
+ .container
+  each el in contacts 
+   div(id= el.id)
+    p= el.name
+    p= el.phone
+    a(href="contacts/edit/"+el.id class="btn")= 'Edit'
+    a(href= '/modal/' +el.id class="btn btn-danger")= 'Delete'
+ a(href="contacts/new" class="btn right")= 'Add'
+  

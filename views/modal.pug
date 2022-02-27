@@ -1,0 +1,17 @@
+extends template.pug
+
+block styles
+ link(rel= "stylesheet" href= cssLink)
+block content
+ div(class='backdrop visible')
+ include includes/deleteConfirm.pug
+ .container
+  each el in contacts 
+   div(id= el.id)
+    p= el.name
+    p= el.phone
+    a(href="#" class="btn")= 'Edit'
+    a(href="" class="btn btn-danger" data-delId= el.id )= 'Delete'
+ a(href="contacts/new" class="btn right")= 'Add'
+ script(src="/delete.js")
+  
