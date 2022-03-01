@@ -8,8 +8,6 @@ const router = express.Router();
 // variables
 let validateResult = false;
 let editId = null;
-let nameErrMessage;
-let phoneErrMessage;
 
 router.get('/edit/:id', (req, res) => {
 	editId = parseInt(req.params.id, 10);
@@ -49,6 +47,8 @@ router.use(
 	],
 	// eslint-disable-next-line consistent-return
 	(req, res, next) => {
+		let nameErrMessage;
+		let phoneErrMessage;
 		const errors = validationResult(req);
 
 		const amCodes = [
