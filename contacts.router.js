@@ -41,16 +41,24 @@ router.use(
 			.withMessage('name required')
 			.bail()
 			.isLength({ min: 2 })
-			.withMessage('Input you name')
+			.withMessage('input you name')
 			.bail()
 			.isString()
 			.matches(/^[A-Za-z]+$/)
-			.withMessage('Cannot contain numbers or symbols '),
+			.withMessage('cannot contain numbers or symbols '),
 	],
 	// eslint-disable-next-line consistent-return
 	(req, res, next) => {
 		const errors = validationResult(req);
-		if (!errors.isEmpty()) {
+
+		const amCodes = [
+			11, 33, 41, 43, 49, 55, 77, 91, 93, 94, 95, 96, 98, 99,
+		];
+		const cellPhoneCode = req.body.phone.slice(5, 7) * 1;
+		let code = amCodes.find((el) => el === cellPhoneCode);
+		if (!code) phoneErrMessage = 'no such mobile code';
+		console.log(code);
+		if (!errors.isEmpty() || !code) {
 			validateResult = false;
 
 			const errArr = errors.array();
@@ -85,6 +93,7 @@ router.use(
 			return next();
 		}
 		validateResult = true;
+		code = null;
 		next();
 	}
 );
